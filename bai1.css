@@ -1,0 +1,22 @@
+body{
+    background-color: #fffde7;
+    text-align: center;
+    font-family: "time new roman";
+}
+h1{
+    background-color: #ffd9e6;
+    color:#d40000;
+}
+.kho1{
+    color:#0033cc;
+
+}
+.kho2{
+    color:#d40000;
+}
+.kho3{
+    color:#0033cc;
+}
+hr{
+    width:300px;
+}
