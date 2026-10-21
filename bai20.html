@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bài20_hiệu ứng ảnh</title>
+    <style>
+       body {
+            margin: 0;
+            background: #101519;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            width: 700px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .box {
+            width: 380px;
+            margin: 20px auto;
+            padding: 15px;
+            background: #1c2226;
+            border-radius: 12px;
+        }
+
+        .image {
+            width: 100%;
+            height: 35px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .image img {
+            max-width: 100%;
+            filter: grayscale(1);
+        }
+
+        .title {
+            margin-top: 10px;
+            font-size: 24px;
+            font-style: italic;
+            color: #f5c542;
+            text-shadow: 0 0 8px #f5c542;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        button {
+            padding: 7px 13px;
+            border: 1px solid #3b464d;
+            border-radius: 6px;
+            background: #232b30;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333d43;
+        }
+
+        button.active {
+            background: #087cff;
+        }
+
+        .gray {
+            filter: grayscale(1);
+        }
+
+        .xray {
+            filter: grayscale(1) invert(1);
+        }
+
+        .invert {
+            filter: invert(1);
+        }
+
+        .fliph {
+            transform: scaleX(-1);
+        }
+
+        .flipv {
+            transform: scaleY(-1);
+        }
+
+        .glow {
+            filter: drop-shadow(0 0 10px #f5c542);
+        }
+
+        .shadow {
+            filter: drop-shadow(5px 5px 5px black);
+        }
+
+        .bold-shadow {
+            filter: drop-shadow(4px 4px 0 black);
+        }
+
+        .drop-shadow {
+            filter: drop-shadow(8px 8px 5px #000);
+        }
+
+        .blur {
+            filter: blur(3px);
+        }
+
+        .wave {
+            transform: skewX(10deg);
+        }
+
+        .mask {
+            opacity: 0.5;
+        }
+
+        .alpha {
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="image">
+                <img src="../Anh/Bai20/hoahong.gif">
+            </div>
+            <div class="title">
+                Speccial For You
+            </div>
+        </div>
+        <div class="button">
+            <button class="active" onclick="changeEffect('gray',this)">Gray</button>
+            <button onclick="changeEffect('xray', this)">Xray</button>
+            <button onclick="changeEffect('invert', this)">Invert</button>
+            <button onclick="changeEffect('fliph', this)">FlipH</button>
+            <button onclick="changeEffect('flipv', this)">FlipV</button>
+            <button onclick="changeEffect('glow', this)">Glow</button>
+            <button onclick="changeEffect('shadow', this)">Shadow</button>
+            <button onclick="changeEffect('bold-shadow', this)">Bold Shadow</button>
+            <button onclick="changeEffect('drop-shadow', this)">DropShadow</button>
+            <button onclick="changeEffect('blur', this)">Blur</button>
+            <button onclick="changeEffect('wave', this)">Wave</button>
+            <button onclick="changeEffect('mask', this)">Mask</button>
+            <button onclick="changeEffect('alpha', this)">Alpha</button>
+
+        </div>
+    </div>
+    <script>
+         function changeEffect(effect, button) {
+            var flower = document.getElementById("flower");
+
+            flower.className = effect;
+
+            var buttons = document.querySelectorAll("button");
+
+            buttons.forEach(function(btn) {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+        }
+
+    </script>
+    
+</body>
+</html>

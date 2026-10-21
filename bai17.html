@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký tài khoản</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #faf4ec;
+            border-top: 3px solid #b52b18;
+        }
+
+        .box {
+            width: 650px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border: 1px solid #ffd2a8;
+            border-radius: 14px;
+        }
+
+        h1 {
+            color: #c83b0d;
+        }
+
+        .mo-ta {
+            color: #6b7280;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .dung {
+            border-color: green;
+        }
+
+        .sai {
+            border-color: red;
+            background: #fff3f3;
+        }
+
+        .ok {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #cc3d08;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Đăng ký tài khoản</h1>
+
+    <p class="mo-ta">
+        Dữ liệu được kiểm tra bằng JavaScript trước khi gửi.
+    </p>
+
+    <label>Họ và tên</label>
+    <input id="hoten">
+    <p id="loiHoten"></p>
+
+
+    <label>Email</label>
+    <input id="email">
+    <p id="loiEmail"></p>
+
+
+    <label>Mật khẩu</label>
+    <input id="matkhau" type="password">
+    <p id="loiMatkhau"></p>
+
+
+    <label>Xác nhận mật khẩu</label>
+    <input id="xacnhan" type="password">
+    <p id="loiXacNhan"></p>
+
+
+    <button onclick="dangKy()">Đăng ký</button>
+
+</div>
+
+
+<script>
+
+    var hoten = document.getElementById("hoten");
+    var email = document.getElementById("email");
+    var matkhau = document.getElementById("matkhau");
+    var xacnhan = document.getElementById("xacnhan");
+
+
+    hoten.addEventListener("input", kiemTraHoTen);
+    email.addEventListener("input", kiemTraEmail);
+    matkhau.addEventListener("input", kiemTraMatKhau);
+    xacnhan.addEventListener("input", kiemTraXacNhan);
+
+
+    function kiemTraHoTen() {
+
+        if (hoten.value.trim() == "") {
+
+            hoten.className = "sai";
+
+            document.getElementById("loiHoten").className = "error";
+            document.getElementById("loiHoten").innerHTML =
+                "✕ Vui lòng nhập họ và tên";
+
+            return false;
+
+        } else {
+
+            hoten.className = "dung";
+
+            document.getElementById("loiHoten").className = "ok";
+            document.getElementById("loiHoten").innerHTML =
+                "✓ Hợp lệ";
+
+            return true;
+        }
+    }
+
+
+    function kiemTraEmail() {
+
+        if (
+            !email.value.includes("@") ||
+            !email.value.includes(".")
+        ) {
+
+            email.className = "sai";
+
+            document.getElementById("loiEmail").className = "error";
+            document.getElementById("loiEmail").innerHTML =
+                "✕ Email không hợp lệ";
+
+            return false;
+
+        } else {
+
+            email.className = "dung";
+
+            document.getElementById("loiEmail").className = "ok";
+            document.getElementById("loiEmail").innerHTML =
+                "✓ Hợp lệ";
+
+            return true;
+        }
+    }
+
+
+    function kiemTraMatKhau() {
+
+        if (matkhau.value.length < 6) {
+
+            matkhau.className = "sai";
+
+            document.getElementById("loiMatkhau").className = "error";
+            document.getElementById("loiMatkhau").innerHTML =
+                "✕ Mật khẩu phải có ít nhất 6 ký tự";
+
+            return false;
+
+        } else {
+
+            matkhau.className = "dung";
+
+            document.getElementById("loiMatkhau").className = "ok";
+            document.getElementById("loiMatkhau").innerHTML =
+                "✓ Hợp lệ";
+
+            return true;
+        }
+    }
+
+
+    function kiemTraXacNhan() {
+
+        if (
+            xacnhan.value == "" ||
+            xacnhan.value != matkhau.value
+        ) {
+
+            xacnhan.className = "sai";
+
+            document.getElementById("loiXacNhan").className = "error";
+            document.getElementById("loiXacNhan").innerHTML =
+                "✕ Mật khẩu xác nhận không khớp";
+
+            return false;
+
+        } else {
+
+            xacnhan.className = "dung";
+
+            document.getElementById("loiXacNhan").className = "ok";
+            document.getElementById("loiXacNhan").innerHTML =
+                "✓ Hợp lệ";
+
+            return true;
+        }
+    }
+
+
+    function dangKy() {
+
+        var a = kiemTraHoTen();
+        var b = kiemTraEmail();
+        var c = kiemTraMatKhau();
+        var d = kiemTraXacNhan();
+
+        if (a && b && c && d) {
+            alert("Đăng ký thành công!");
+        } else {
+            alert("Vui lòng kiểm tra lại thông tin!");
+        }
+    }
+
+</script>
+
+</body>
+</html>

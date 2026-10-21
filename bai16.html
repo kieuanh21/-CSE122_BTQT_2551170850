@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 16 - Danh sách việc cần làm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f8;
+            margin: 0;
+            padding: 30px 15px;
+            color: #222;
+        }
+
+        .ung-dung {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+        }
+
+        .dau-trang {
+            background-color: #6d28d9;
+            color: #ffffff;
+            padding: 22px 26px;
+        }
+
+        .dau-trang h1 {
+            margin: 0 0 6px;
+            font-size: 25px;
+        }
+
+        .dau-trang p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .khu-vuc-them {
+            display: flex;
+            gap: 10px;
+            padding: 20px 26px;
+            border-bottom: 1px solid #eee8ff;
+        }
+
+        #oNhapViec {
+            flex: 1;
+            min-width: 0;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd6fe;
+            border-radius: 9px;
+        }
+
+        #nutThem {
+            padding: 12px 23px;
+            border: none;
+            border-radius: 9px;
+            background-color: #6d28d9;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        #nutThem:hover {
+            background-color: #5b21b6;
+        }
+
+        #danhSach {
+            list-style: none;
+            margin: 0;
+            padding: 8px 26px 0;
+        }
+
+        #danhSach li {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 13px 0;
+            border-bottom: 1px dashed #eee8ff;
+        }
+
+        .oHoanThanh {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            border: 2px solid #a78bfa;
+            border-radius: 7px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .noiDungViec {
+            flex: 1;
+            overflow-wrap: anywhere;
+            cursor: pointer;
+        }
+
+        .hoanThanh .oHoanThanh {
+            background-color: #6d28d9;
+            border-color: #6d28d9;
+        }
+
+        .hoanThanh .noiDungViec {
+            color: #9ca3af;
+            text-decoration: line-through;
+        }
+
+        .nutXoa {
+            border: none;
+            border-radius: 8px;
+            padding: 7px 13px;
+            background-color: #fee2e2;
+            color: #b91c1c;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .nutXoa:hover {
+            background-color: #fecaca;
+        }
+
+        #demViec {
+            color: #6b7280;
+            padding: 22px 26px;
+            margin: 0;
+        }
+
+        @media (max-width: 480px) {
+            .khu-vuc-them {
+                padding: 16px;
+            }
+
+            #danhSach {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .dau-trang {
+                padding: 20px 16px;
+            }
+
+            #demViec {
+                padding: 18px 16px;
+            }
+
+            #nutThem {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="ung-dung">
+        <header class="dau-trang">
+            <h1>Danh sách việc cần làm</h1>
+            <p>Thêm việc mới, đánh dấu hoàn thành hoặc xoá — tất cả bằng JavaScript.</p>
+        </header>
+
+        <section class="khu-vuc-them">
+            <input id="oNhapViec" type="text" placeholder="Nhập việc cần làm..." aria-label="Nhập việc cần làm">
+            <button id="nutThem" type="button">Thêm</button>
+        </section>
+
+        <ul id="danhSach">
+            <li>
+                <button class="oHoanThanh" type="button" aria-label="Đánh dấu hoàn thành"></button>
+                <span class="noiDungViec">Đọc chương HTML5 cơ bản</span>
+                <button class="nutXoa" type="button">Xoá</button>
+            </li>
+            <li>
+                <button class="oHoanThanh" type="button" aria-label="Đánh dấu hoàn thành"></button>
+                <span class="noiDungViec">Làm bài tập CSS Grid</span>
+                <button class="nutXoa" type="button">Xoá</button>
+            </li>
+            <li>
+                <button class="oHoanThanh" type="button" aria-label="Đánh dấu hoàn thành"></button>
+                <span class="noiDungViec">Quay video OBS nộp bài</span>
+                <button class="nutXoa" type="button">Xoá</button>
+            </li>
+        </ul>
+
+        <p id="demViec">Còn 3 việc chưa hoàn thành</p>
+    </main>
+
+    <script>
+        const oNhapViec = document.getElementById("oNhapViec");
+        const nutThem = document.getElementById("nutThem");
+        const danhSach = document.getElementById("danhSach");
+        const demViec = document.getElementById("demViec");
+
+        function capNhatSoViec() {
+            const cacViec = danhSach.querySelectorAll("li");
+            let soViecChuaXong = 0;
+
+            cacViec.forEach(function(viec) {
+                if (!viec.classList.contains("hoanThanh")) {
+                    soViecChuaXong = soViecChuaXong + 1;
+                }
+            });
+
+            demViec.textContent = "Còn " + soViecChuaXong + " việc chưa hoàn thành";
+        }
+
+    
+        function themViec() {
+            const noiDung = oNhapViec.value.trim();
+
+    
+            if (noiDung === "") {
+                alert("Bạn hãy nhập nội dung công việc trước nhé!");
+                oNhapViec.focus();
+                return;
+            }
+
+            const mucViec = document.createElement("li");
+
+            const nutHoanThanh = document.createElement("button");
+            nutHoanThanh.type = "button";
+            nutHoanThanh.className = "oHoanThanh";
+            nutHoanThanh.setAttribute("aria-label", "Đánh dấu hoàn thành");
+
+            const tenViec = document.createElement("span");
+            tenViec.className = "noiDungViec";
+            tenViec.textContent = noiDung;
+
+            const nutXoa = document.createElement("button");
+            nutXoa.type = "button";
+            nutXoa.className = "nutXoa";
+            nutXoa.textContent = "Xoá";
+
+            mucViec.appendChild(nutHoanThanh);
+            mucViec.appendChild(tenViec);
+            mucViec.appendChild(nutXoa);
+            danhSach.appendChild(mucViec);
+
+            oNhapViec.value = "";
+            oNhapViec.focus();
+            capNhatSoViec();
+        }
+
+        nutThem.addEventListener("click", themViec);
+        oNhapViec.addEventListener("keydown", function(suKien) {
+            if (suKien.key === "Enter") {
+                themViec();
+            }
+        });
+
+
+        danhSach.addEventListener("click", function(suKien) {
+            const mucViec = suKien.target.closest("li");
+
+            if (mucViec === null) {
+                return;
+            }
+
+            if (suKien.target.classList.contains("oHoanThanh") ||
+                suKien.target.classList.contains("noiDungViec")) {
+                mucViec.classList.toggle("hoanThanh");
+                capNhatSoViec();
+            }
+
+            if (suKien.target.classList.contains("nutXoa")) {
+                mucViec.remove();
+                capNhatSoViec();
+            }
+        });
+
+        capNhatSoViec();
+    </script>
+</body>
+</html>

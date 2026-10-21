@@ -1,0 +1,104 @@
+/* Cài đặt chung */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 20px 15px 30px;
+
+    border-top: 3px solid #b83220;
+}
+
+h1 {
+    margin: 15px 0 0;
+    color: #e44b16;
+    font-size: 28px;
+}
+
+h3 {
+    margin: 2px 0 15px;
+    color: #e44b16;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.intro {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.text {
+    flex: 1;
+}
+
+.text p {
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 0 15px;
+}
+
+.first-letter::first-letter {
+    color: #e44b16;
+    font-size: 42px;
+    font-weight: bold;
+    float: left;
+    line-height: 0.8;
+    margin-right: 5px;
+}
+
+.image {
+    width: 220px;
+}
+
+.image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.food-list {
+    margin-top: 15px;
+    padding: 10px 15px;
+
+    border: 2px solid #3b8f46;
+    border-radius: 7px;
+
+    background-color: #f4faf4;
+}
+
+.food-list h2 {
+    margin: 0 0 8px;
+
+    color: #28783a;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list ul {
+    width: 48%;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.list li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+

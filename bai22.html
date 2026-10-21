@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chế độ Tối / Sáng</title>
+
+    <style>
+        :root {
+            --nen: #ffffff;
+            --chu: #172033;
+            --the: #ffffff;
+            --vien: #d9dee8;
+            --nhan: #087ee8;
+        }
+
+        body.toi {
+            --nen: #0f172a;
+            --chu: #e2e8f0;
+            --the: #1e293b;
+            --vien: #334155;
+            --nhan: #60a5fa;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: var(--nen);
+            color: var(--chu);
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .khung {
+            width: 90%;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .dau {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0 0 15px;
+        }
+
+        .nut {
+            width: 48px;
+            height: 26px;
+            border-radius: 20px;
+            background: #999;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nut::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: 0.3s;
+        }
+
+        body.toi .nut {
+            background: #60a5fa;
+        }
+
+        body.toi .nut::after {
+            left: 25px;
+        }
+
+        .the {
+            background: var(--the);
+            border: 1px solid var(--vien);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+            transition: background 0.5s, color 0.5s, border 0.5s;
+        }
+
+        .the h3 {
+            margin: 0 0 8px;
+            color: var(--nhan);
+        }
+
+        .the p {
+            margin: 0;
+        }
+
+        .mo-ta {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body class="toi">
+
+    <div class="khung">
+
+        <div class="dau">
+            <h1>Chế độ Tối / Sáng</h1>
+
+            <div class="nut" onclick="doiCheDo()"></div>
+        </div>
+
+        <div class="the">
+            <h3>Biến CSS (CSS Variables)</h3>
+            <p>
+                Toàn bộ màu sắc được khai báo trong :root
+                và ghi đè bằng class .toi.
+            </p>
+        </div>
+
+        <div class="the">
+            <h3>Chuyển đổi bằng JavaScript</h3>
+            <p>
+                Nút gạt thêm/bỏ class .toi trên &lt;body&gt;
+                — mọi thành phần tự đổi màu.
+            </p>
+        </div>
+
+        <div class="the">
+            <h3>Chuyển màu mượt</h3>
+            <p>
+                Dùng transition để màu nền và chữ chuyển dần,
+                không bị giật.
+            </p>
+        </div>
+
+        <p class="mo-ta">
+            Đây là giao diện ở chế độ TỐI (đang bật).
+        </p>
+
+    </div>
+
+    <script>
+        function doiCheDo() {
+            document.body.classList.toggle("toi");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 13 - Đồng hồ</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+        }
+
+        .dong-ho {
+            width: 650px;
+            margin: 20px auto;
+            padding: 30px;
+            background: black;
+            border-radius: 20px;
+        }
+
+        .dong-ho img {
+            width: 52px;
+            margin: 5px;
+        }
+
+        .loi-chao {
+            width: 650px;
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            color: #c62828;
+            font-family: "Times New Roman";
+            font-size: 65px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dong-ho">
+        <img id="gio1">
+        <img id="gio2">
+        <img src="../Anh/Bai13/00.gif">
+
+        <img id="phut1">
+        <img id="phut2">
+        <img src="../Anh/Bai13/haicham.gif">
+
+        <img id="giay1">
+        <img id="giay2">
+    </div>
+
+    <div class="loi-chao" id="loiChao">
+        Chào buổi sáng
+    </div>
+
+    <script>
+        function hienThiDongHo() {
+            var thoiGian = new Date();
+
+            var gio = thoiGian.getHours();
+            var phut = thoiGian.getMinutes();
+            var giay = thoiGian.getSeconds();
+
+            var gio1 = Math.floor(gio / 10);
+            var gio2 = gio % 10;
+
+            var phut1 = Math.floor(phut / 10);
+            var phut2 = phut % 10;
+
+            var giay1 = Math.floor(giay / 10);
+            var giay2 = giay % 10;
+
+            document.getElementById("gio1").src = gio1 + ".gif";
+            document.getElementById("gio2").src = gio2 + ".gif";
+
+            document.getElementById("phut1").src = phut1 + ".gif";
+            document.getElementById("phut2").src = phut2 + ".gif";
+
+            document.getElementById("giay1").src = giay1 + ".gif";
+            document.getElementById("giay2").src = giay2 + ".gif";
+
+            if (gio >= 5 && gio < 12) {
+                document.getElementById("loiChao").innerHTML =
+                    "Chào buổi sáng";
+            }
+            else if (gio >= 12 && gio < 18) {
+                document.getElementById("loiChao").innerHTML =
+                    "Chào buổi chiều";
+            }
+            else {
+                document.getElementById("loiChao").innerHTML =
+                    "Chào buổi tối";
+            }
+        }
+
+        hienThiDongHo();
+
+        setInterval(hienThiDongHo, 1000);
+    </script>
+
+</body>
+</html>

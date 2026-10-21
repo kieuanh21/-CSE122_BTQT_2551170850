@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 21 - Hệ thống bài tập Lập trình Web</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: white;
+        }
+
+        .trang {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 200px 1fr 100px;
+            grid-template-rows: 55px auto;
+        }
+
+        .banner {
+            grid-column: 1 / 4;
+            background: #C62828 url("Nen_banner.jpg");
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            gap: 15px;
+        }
+
+        .banner img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .banner h2 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .menu {
+            background: linear-gradient(#C62828, #8E0000);
+            min-height: 340px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 12px 10px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #b71c1c;
+            font-size: 13px;
+        }
+
+        .menu a:hover {
+            background: #b71c1c;
+        }
+
+        .noidung {
+            padding: 15px;
+        }
+
+        .noidung h1 {
+            color: #C62828;
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .menu-con {
+            background: #FFE082;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+
+        .menu-con span {
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .hop {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 90px;
+        }
+
+        .hop p {
+            margin: 0 0 15px;
+        }
+
+        .loi-chao {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .quang-cao {
+            padding: 10px 5px;
+        }
+
+        .quang-cao img {
+            width: 100%;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .trang {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .banner {
+                grid-column: 1;
+            }
+
+            .menu {
+                min-height: auto;
+            }
+
+            .quang-cao {
+                display: flex;
+                gap: 10px;
+            }
+
+            .quang-cao img {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="trang">
+
+        <div class="banner">
+            <img src="../Anh/Bai21/LogoTT.gif">
+            <h2>Hệ thống bài tập Lập trình Web</h2>
+        </div>
+
+        <div class="menu">
+            <a href="#">Ngôn ngữ HTML</a>
+            <a href="#">Ngôn ngữ JavaScript</a>
+            <a href="#">Các đối tượng trong JavaScript</a>
+            <a href="#">CSS và bố cục hiện đại</a>
+        </div>
+
+        <div class="noidung">
+
+            <h1>Bài tập HTML cơ bản</h1>
+
+            <div class="menu-con">
+                <span>• Dấu chuỗi</span>
+                <span>• Phân tích chuỗi</span>
+                <span>• Tìm và thay thế</span>
+            </div>
+
+            <div class="hop">
+                <p>Thiết kế trang web có nội dung như sau:</p>
+
+                <div class="loi-chao">
+                    Trung Tâm Tin học – ĐH KHTN<br>
+                    Chào mừng các bạn đến với ngôn ngữ HTML
+                </div>
+            </div>
+
+        </div>
+
+        <div class="quang-cao">
+            <img src="Qcao01.gif">
+            <img src="Qcao02.gif">
+        </div>
+
+    </div>
+
+</body>
+</html>

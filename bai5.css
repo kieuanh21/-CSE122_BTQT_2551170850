@@ -1,0 +1,31 @@
+.container{
+    border :5px solid #c21858;
+    padding:2px;
+    width:600px;
+}
+.tieude{
+    text-align: center;
+    color:#c21858;
+}
+.tendanhsach{
+    border-radius: 2px;
+    padding:2px;
+    display:inline-block;
+    background-color: #ffc0cb;
+    
+}
+.ndds1{
+    list-style: square;
+}
+.ndds2{
+    list-style: circle;
+}
+.anh{
+    float:left;
+    margin-right: 20px;
+
+}
+.coppy{
+    color:blue;
+    text-align: right;
+}

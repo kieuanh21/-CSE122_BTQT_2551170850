@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bài 30 - Bảng điều khiển</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: white;
+            font-family: Arial;
+        }
+
+        .tieu-de {
+            color: #b52b20;
+            background: #faeeee;
+            border-bottom: 3px solid #b52b20;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .sidebar {
+            background: #212529;
+            min-height: 525px;
+            color: white;
+        }
+
+        .sidebar h6 {
+            padding: 15px 10px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            padding: 7px 10px;
+            font-size: 13px;
+            border-radius: 4px;
+            margin: 2px 6px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .noi-dung {
+            background: #e9ecef;
+            min-height: 525px;
+            padding: 15px;
+        }
+
+        .thanh-dau {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .thanh-dau h5 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .the-thong-ke {
+            background: white;
+            border: none;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        .the-thong-ke .so {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .progress {
+            height: 4px;
+        }
+
+        .danh-sach {
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        .danh-sach .list-group-item {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h2 class="tieu-de">
+        Bài 30 — Bảng điều khiển (Bootstrap)
+    </h2>
+
+    <div class="row mt-3">
+
+        <div class="col-md-2 sidebar">
+
+            <h6>CSE.TLU Admin</h6>
+
+            <a href="#" class="active">
+                Bảng điều khiển
+            </a>
+
+            <a href="#">
+                Bài tập
+            </a>
+
+            <a href="#">
+                Sinh viên
+            </a>
+
+            <a href="#">
+                Điểm số
+            </a>
+
+        </div>
+
+
+        <div class="col-md-10 noi-dung">
+
+            <div class="thanh-dau mb-3">
+
+                <h5>Bảng điều khiển</h5>
+
+                <div>
+                    <span class="badge bg-warning text-dark">
+                        3 bài mới
+                    </span>
+
+                    <button class="btn btn-primary btn-sm">
+                        Xuất báo cáo
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="row g-2">
+
+                <div class="col-md-3">
+                    <div class="card the-thong-ke">
+
+                        <div class="card-body p-2">
+
+                            <small>Sinh viên</small>
+
+                            <div class="so">
+                                128
+                            </div>
+
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-primary"
+                                     style="width: 82%">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="card the-thong-ke">
+
+                        <div class="card-body p-2">
+
+                            <small>Đã nộp</small>
+
+                            <div class="so">
+                                96
+                            </div>
+
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-success"
+                                     style="width: 75%">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="card the-thong-ke">
+
+                        <div class="card-body p-2">
+
+                            <small>Chưa nộp</small>
+
+                            <div class="so">
+                                32
+                            </div>
+
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-danger"
+                                     style="width: 25%">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="card the-thong-ke">
+
+                        <div class="card-body p-2">
+
+                            <small>Điểm TB</small>
+
+                            <div class="so">
+                                7.8
+                            </div>
+
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-warning"
+                                     style="width: 78%">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="card danh-sach mt-3">
+
+                <div class="card-header bg-white">
+                    <b>Tiến độ theo chương</b>
+                </div>
+
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Chương 1 — HTML5</span>
+                        <span class="badge bg-success">100%</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Chương 2 — JavaScript</span>
+                        <span class="badge bg-primary">82%</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Chương 3 — CSS3</span>
+                        <span class="badge bg-info text-dark">74%</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Chương 4 — Bootstrap 5</span>
+                        <span class="badge bg-secondary">45%</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

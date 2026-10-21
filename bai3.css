@@ -1,0 +1,62 @@
+.body{
+    margin:0;
+    background-color: white;
+    font-family: "time new roman";
+}
+.khung{
+    width:90%;
+    max-width: 790px;
+    margin:30px auto;
+    padding:25px 14px;
+    background-color: linear-gradient(
+        135deg,
+        #72c4df,
+        #0b3d5c
+    )
+
+}
+.tieude{
+    padding:20px;
+    background-color: aliceblue;
+    border-radius: 8px;
+}
+.tieude h1{
+    margin: 0 0 15px;
+    text-align: center;
+    color:#0b3d5c;
+}
+.gioithieu{
+    margin-bottom: 13px;
+    padding:13px 15px;
+    background-color: #0b3d5c;
+    color:antiquewhite;
+    border-radius: 5px;
+    font-size: 15px;
+
+}
+.noidung{
+    display:flex;
+    gap:15px;
+}
+.chu p{
+    text-align: justify;
+    line-height:15px;
+}
+.chu p::first-letter{
+    float:left;
+    font-size: 40px;
+    color:#0b3d5c;
+    margin-right:3px;
+}
+.anh{
+    width:220px;
+    flex-shrink: 0;
+    overflow:hidden;
+    border-radius: 5px;
+}
+.anh img{
+    display:block;
+    width:100%;
+    height:145px;
+    object-fit:cover ;
+}

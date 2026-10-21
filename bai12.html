@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài tập In Lịch</title>
+<style>
+  body {
+    font-family: "Times New Roman", serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .the {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 25px 35px;
+    width: 560px;
+    text-align: center;
+  }
+  .hop-ngay {
+    border: 1px solid #cfcfcf;
+    border-radius: 12px;
+    padding: 20px 10px;
+  }
+  #nam  { color: #c0392b; font-size: 20px; }
+  #thang { color: #1a5276; font-size: 26px; font-weight: bold; }
+  #ngay { color: #c0392b; font-size: 80px; font-weight: bold; line-height: 1.1; }
+  #thu  { color: #1a5276; font-size: 26px; font-weight: bold; }
+  #loiChao {
+    color: #c0392b;
+    font-style: italic;
+    font-size: 24px;
+    margin: 25px 0;
+  }
+  .hop-nhap {
+    border: 2px solid #2471a3;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+  .o-nhap label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .o-nhap input {
+    width: 100px;
+    padding: 8px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  #btnInLich {
+    background: #546e7a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  #btnInLich:hover { background: #37474f; }
+</style>
+</head>
+<body>
+
+<div class="the">
+  <div class="hop-ngay">
+    <div id="nam">2026</div>
+    <div id="thang">Tháng 12</div>
+    <div id="ngay">24</div>
+    <div id="thu">Thứ hai</div>
+  </div>
+
+  <div id="loiChao">Chào buổi sáng!</div>
+
+  <div class="hop-nhap">
+    <div class="o-nhap">
+      <label>Ngày</label>
+      <input type="text" id="nhapNgay">
+    </div>
+    <div class="o-nhap">
+      <label>Tháng</label>
+      <input type="text" id="nhapThang">
+    </div>
+    <div class="o-nhap">
+      <label>Năm</label>
+      <input type="text" id="nhapNam">
+    </div>
+    <button id="btnInLich">In<br>lịch</button>
+  </div>
+</div>
+
+<script>
+// em mới học nên đặt tên biến đơn giản cho dễ nhớ
+var mangThu = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+
+// hàm in ngày - tháng - năm - thứ lên màn hình
+function inNgay(d) {
+  document.getElementById("ngay").innerHTML = d.getDate();
+  document.getElementById("thang").innerHTML = "Tháng " + (d.getMonth() + 1);
+  document.getElementById("nam").innerHTML = d.getFullYear();
+  document.getElementById("thu").innerHTML = mangThu[d.getDay()];
+}
+
+// hàm đổi lợi chào theo giờ trong ngày
+function doiLoiChao() {
+  var gio = new Date().getHours();
+  var loiChao;
+  if (gio >= 5 && gio < 12) {
+    loiChao = "Chào buổi sáng!";
+  } else if (gio >= 12 && gio < 18) {
+    loiChao = "Chào buổi chiều!";
+  } else {
+    loiChao = "Chào buổi tối!";
+  }
+  document.getElementById("loiChao").innerHTML = loiChao;
+}
+
+// gọi hàm khi bấm nút In lịch
+document.getElementById("btnInLich").addEventListener("click", function() {
+  var ngay = document.getElementById("nhapNgay").value;
+  var thang = document.getElementById("nhapThang").value;
+  var nam = document.getElementById("nhapNam").value;
+  var d = new Date(nam, thang - 1, ngay);
+  inNgay(d);
+});
+
+inNgay(new Date());
+doiLoiChao();
+</script>
+
+</body>
+</html>
