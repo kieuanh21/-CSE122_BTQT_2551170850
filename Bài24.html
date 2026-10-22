@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng giá khóa học</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6ff;
+            color: #17233c;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heading h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #697386;
+            font-size: 15px;
+        }
+
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: center;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(40, 50, 90, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(40, 50, 90, 0.18);
+        }
+
+        .card.popular {
+            border: 2px solid #4d3ee8;
+            transform: scale(1.05);
+            box-shadow: 0 18px 35px rgba(77, 62, 232, 0.2);
+        }
+
+        .card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 22px 40px rgba(77, 62, 232, 0.28);
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef0ff;
+            color: #4338ca;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 5px 13px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .price span {
+            font-size: 13px;
+            font-weight: normal;
+            color: #697386;
+        }
+
+        .card ul {
+            list-style: none;
+            min-height: 110px;
+        }
+
+        .card li {
+            font-size: 14px;
+            color: #596579;
+            margin: 12px 0;
+        }
+
+        .card button {
+            width: 100%;
+            border: none;
+            background: #edf1f6;
+            color: #253044;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card button:hover {
+            background: #dfe4ed;
+            transform: scale(1.03);
+        }
+
+        .card.popular button {
+            background: #4d3ee8;
+            color: white;
+        }
+
+        .card.popular button:hover {
+            background: #382bc9;
+        }
+
+        @media (max-width: 768px) {
+            .pricing {
+                grid-template-columns: 1fr;
+            }
+
+            .card.popular {
+                transform: scale(1);
+            }
+
+            .card.popular:hover {
+                transform: translateY(-10px);
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="heading">
+            <h1>Bảng giá khóa học</h1>
+            <p>Chọn gói phù hợp — hiệu ứng chuyển động và làm nổi bật gói phổ biến.</p>
+        </div>
+
+        <div class="pricing">
+
+            <div class="card">
+                <div class="tag">CƠ BẢN</div>
+
+                <h2>Starter</h2>
+
+                <div class="price">
+                    0 <span>đ</span>
+                </div>
+
+                <ul>
+                    <li>12 bài HTML/CSS</li>
+                    <li>Video hướng dẫn</li>
+                    <li>Hỗ trợ qua email</li>
+                </ul>
+
+                <button>Bắt đầu</button>
+            </div>
+
+            <div class="card popular">
+                <div class="tag">PHỔ BIẾN NHẤT</div>
+
+                <h2>Pro</h2>
+
+                <div class="price">
+                    499 <span>k/tháng</span>
+                </div>
+
+                <ul>
+                    <li>30 bài HTML/CSS/JS</li>
+                    <li>Bootstrap 5</li>
+                    <li>Chấm bài + phản hồi</li>
+                    <li>Hỗ trợ 1-1</li>
+                </ul>
+
+                <button>Đăng ký ngay</button>
+            </div>
+
+            <div class="card">
+                <div class="tag">NÂNG CAO</div>
+
+                <h2>Team</h2>
+
+                <div class="price">
+                    1.2 <span>tr/tháng</span>
+                </div>
+
+                <ul>
+                    <li>Mọi quyền lợi gói Pro</li>
+                    <li>Dự án nhóm</li>
+                    <li>Mentor riêng</li>
+                </ul>
+
+                <button>Liên hệ</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll(".card button");
+
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const packageName = this.closest(".card").querySelector("h2").textContent;
+                alert("Bạn đã chọn gói: " + packageName);
+            });
+        });
+    </script>
+
+</body>
+</html>
