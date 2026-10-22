@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký CLB Lập trình Web</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #e9ecef;
+            color: #212529;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #198754;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        .card-header h1 {
+            font-size: 28px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1px solid #dee2e6;
+            border-radius: 7px;
+            font-size: 17px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #198754;
+            box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.15);
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+
+        .radio-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: #0d6efd;
+        }
+
+        select {
+            appearance: auto;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            margin-top: 18px;
+        }
+
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+            accent-color: #0d6efd;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .reset-btn {
+            background: white;
+            border: 1px solid #6c757d;
+            color: #6c757d;
+        }
+
+        .reset-btn:hover {
+            background: #6c757d;
+            color: white;
+        }
+
+        .submit-btn {
+            background: #198754;
+            border: 1px solid #198754;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background: #146c43;
+            transform: translateY(-2px);
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .radio-group {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="card-header">
+                <h1>Đăng ký tham gia CLB Lập trình Web</h1>
+            </div>
+
+            <div class="card-body">
+
+                <form id="registerForm">
+
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label for="name">Họ và tên</label>
+                            <input
+                                type="text"
+                                id="name"
+                                class="form-control"
+                                placeholder="Nguyễn Văn A"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentId">Mã sinh viên</label>
+                            <input
+                                type="text"
+                                id="studentId"
+                                class="form-control"
+                                placeholder="22xxxxxx"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="sv@tlu.edu.vn"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                class="form-control"
+                                placeholder="09xxxxxxxx"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="section">
+
+                        <span class="section-title">Trình độ</span>
+
+                        <div class="radio-group">
+
+                            <label class="radio-item">
+                                <input
+                                    type="radio"
+                                    name="level"
+                                    value="Cơ bản"
+                                    checked
+                                >
+                                Cơ bản
+                            </label>
+
+                            <label class="radio-item">
+                                <input
+                                    type="radio"
+                                    name="level"
+                                    value="Khá"
+                                >
+                                Khá
+                            </label>
+
+                            <label class="radio-item">
+                                <input
+                                    type="radio"
+                                    name="level"
+                                    value="Tốt"
+                                >
+                                Tốt
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="section">
+
+                        <label for="class" class="section-title">
+                            Chọn lớp
+                        </label>
+
+                        <select id="class" class="form-control">
+                            <option value="67CNTT1">67CNTT1</option>
+                            <option value="67CNTT2">67CNTT2</option>
+                            <option value="67CNTT3">67CNTT3</option>
+                            <option value="67CNTT4">67CNTT4</option>
+                        </select>
+
+                    </div>
+
+                    <label class="checkbox-group">
+
+                        <input
+                            type="checkbox"
+                            id="commit"
+                        >
+
+                        <span>Tôi cam kết tự làm bài và quay video OBS</span>
+
+                    </label>
+
+                    <div class="buttons">
+
+                        <button
+                            type="reset"
+                            class="reset-btn"
+                        >
+                            Nhập lại
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                        >
+                            Đăng ký
+                        </button>
+
+                    </div>
+
+                    <div id="message" class="message"></div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("registerForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const studentId = document.getElementById("studentId").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const commit = document.getElementById("commit").checked;
+
+            if (name === "") {
+                alert("Vui lòng nhập họ và tên");
+                return;
+            }
+
+            if (studentId === "") {
+                alert("Vui lòng nhập mã sinh viên");
+                return;
+            }
+
+            if (email === "") {
+                alert("Vui lòng nhập email");
+                return;
+            }
+
+            if (phone === "") {
+                alert("Vui lòng nhập số điện thoại");
+                return;
+            }
+
+            if (!commit) {
+                alert("Bạn cần đồng ý với cam kết");
+                return;
+            }
+
+            message.textContent = "Đăng ký thành công!";
+            message.style.color = "#198754";
+        });
+
+        form.addEventListener("reset", function() {
+            message.textContent = "";
+        });
+    </script>
+
+</body>
+</html>
